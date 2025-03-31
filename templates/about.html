@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-dark text-white text-center py-5">
+    <h1>About Our Sentiment Analysis App</h1>
+    <p>Uncover emotions behind online discussions using AI.</p>
+</section>
+
+<!-- Introduction -->
+<section class="container my-5">
+    <h2>What is This App?</h2>
+    <p>Our sentiment analysis tool scans Reddit discussions and analyzes emotions in real-time, helping users track public opinion on various topics.</p>
+</section>
+
+<!-- Purpose of the Project -->
+<section class="container my-5">
+    <h2>Purpose of This Project</h2>
+    <p>Understanding sentiment is crucial in decision-making. This tool enables businesses, researchers, and individuals to track opinions, predict trends, and understand emotions in online discussions.</p>
+</section>
+
+<!-- How It Works -->
+<section class="container my-5">
+    <h2>How It Works</h2>
+    <div class="row text-center">
+        <div class="col-md-3">
+            <h4>1. Extracts Data</h4>
+            <p>Pulls comments from Reddit discussions.</p>
+        </div>
+        <div class="col-md-3">
+            <h4>2. Analyzes Emotions</h4>
+            <p>Uses AI to classify sentiments as Positive, Negative, or Neutral.</p>
+        </div>
+        <div class="col-md-3">
+            <h4>3. Generates Insights</h4>
+            <p>Summarizes overall sentiment trends.</p>
+        </div>
+        <div class="col-md-3">
+            <h4>4. Visualizes Data</h4>
+            <p>Displays easy-to-understand charts and statistics.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Who Can Benefit -->
+<section class="container my-5">
+    <h2>Who Can Benefit From It?</h2>
+    <ul>
+        <li><strong>Businesses:</strong> Track brand reputation and customer opinions.</li>
+        <li><strong>Researchers:</strong> Study social trends and public opinion.</li>
+        <li><strong>Marketers:</strong> Understand consumer sentiment for better campaigns.</li>
+        <li><strong>General Users:</strong> Stay updated on trending topics.</li>
+    </ul>
+</section>
+
+<!-- Technology Stack -->
+<section class="container my-5">
+    <h2>Our Technology Stack</h2>
+    <ul>
+        <li>🖥️ <strong>Backend:</strong> Flask & Python</li>
+        <li>💻 <strong>Frontend:</strong> HTML, CSS, JavaScript (Bootstrap)</li>
+        <li>🤖 <strong>AI Model:</strong> NLP (VADER, TextBlob, or custom models)</li>
+        <li>📊 <strong>Data Source:</strong> Reddit API</li>
+        <li>📈 <strong>Visualization:</strong> Matplotlib & Chart.js</li>
+    </ul>
+</section>
+
+<!-- Research Segment -->
+<section class="container my-5">
+    <h2>Research on Sentiment Analysis</h2>
+    <p>Good knowledge, attitudes, and practices (KAP) towards obstetric danger signs lead to fast health-seeking behavior, protecting both mother and child. A lack of awareness about these signs can cause delays in seeking care, contributing to maternal mortality.</p>
+    <p>This research aims to increase awareness of obstetric danger signs among pregnant mothers at Kitui County Referral Hospital. It is a descriptive cross-sectional study involving 80 respondents selected through random sampling. Data will be collected via questionnaires, processed using SPSS version 26, and presented using tables, graphs, and charts.</p>
+</section>
+
+<!-- Meet the Team -->
+<section class="container my-5 text-center">
+    <h2>Meet the Team</h2>
+    <p><strong>Wekesa Senior</strong> - Developer & AI Enthusiast</p>
+</section>
+
+<!-- Call to Action -->
+<section class="text-center my-5">
+    <h2>Ready to Explore Sentiments?</h2>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg">Start Analyzing</a>
+</section>
+
+
+{% endblock %}
