@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        .positive { color: green; font-weight: bold; }
+        .negative { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Sentiment Prediction</h1>
+
+    <p><strong>Input Text:</strong> {{ user_input }}</p>
+    <h2 class="{{ 'positive' if sentiment == 'Positive' else 'negative' }}">
+        Sentiment: {{ sentiment }}
+    </h2>
+
+    <a href="{{ url_for('home') }}">Go Back</a>
+
+</body>
+</html>
