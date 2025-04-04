@@ -5,4 +5,19 @@
 {% block content %}
 <h1>Dashboard</h1>
 <p>Welcome, {{ username }}!</p>
+
+<!-- Sentiment Analysis Form -->
+<form method="POST">
+    <label for="text">Enter a sentence for sentiment analysis:</label>
+    <textarea name="text" id="text" rows="3" required></textarea>
+    <br>
+    <button type="submit">Analyze Sentiment</button>
+</form>
+
+<!-- Display Sentiment Result -->
+{% if sentiment %}
+    <h3>Sentiment Analysis Result:</h3>
+    <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+{% endif %}
+
 {% endblock %}
