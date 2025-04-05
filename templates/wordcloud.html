@@ -1,0 +1,16 @@
+--{% extends "base.html" %}
+
+{% block title %}Word Cloud{% endblock %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <h2>Word Cloud</h2>
+    {% if img_data %}
+        <img src="data:image/png;base64,{{ img_data }}" alt="Word Cloud" class="img-fluid">
+    {% else %}
+        <p>No data available to generate word cloud.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+</div>
+{% endblock %}
+

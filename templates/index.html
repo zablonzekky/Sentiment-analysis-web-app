@@ -29,28 +29,19 @@
         <canvas id="sentimentChart" width="400" height="400"></canvas>
     </div>
 
-    <!-- Features Section -->
+    <!-- Extra Features Section -->
     <div class="mt-5">
-        <h2 class="text-center">Why Choose Our Sentiment Analysis?</h2>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h4>AI-powered Analysis</h4>
-                    <p>Utilizing advanced NLP models to deliver accurate sentiment analysis.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h4>Real-time Insights</h4>
-                    <p>Analyze sentiments from live Reddit posts and other sources.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h4>Multi-language Support</h4>
-                    <p>Detect sentiments in various languages across global texts.</p>
-                </div>
-            </div>
+        <h2 class="text-center">Additional Features</h2>
+        <div class="d-flex flex-column align-items-center">
+            <a href="{{ url_for('download_results') }}" class="btn btn-primary btn-block mb-2" style="max-width:400px;">
+                Download Sentiment Results (CSV)
+            </a>
+            <a href="{{ url_for('generate_wordcloud') }}" class="btn btn-info btn-block mb-2" style="max-width:400px;">
+                View Word Cloud
+            </a>
+            <a href="{{ url_for('history') }}" class="btn btn-warning btn-block" style="max-width:400px;">
+                View Sentiment History
+            </a>
         </div>
     </div>
 

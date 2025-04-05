@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Sentiment Analysis - History{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Sentiment Analysis History</h2>
+    
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>Text</th>
+                <th>Sentiment</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in history %}
+            <tr>
+                <td>{{ entry.text }}</td>
+                <td>{{ entry.sentiment }}</td>
+                <td>{{ entry.timestamp }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3" class="text-center">No sentiment analysis history available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="text-center mt-4">
+        <a href="/export_csv" class="btn btn-outline-primary">Download History as CSV</a>
+    </div>
+</div>
+{% endblock %}
