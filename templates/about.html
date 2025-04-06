@@ -7,13 +7,13 @@
 <!-- Hero Section -->
 <section class="bg-dark text-white text-center py-5">
     <h1>About Our Sentiment Analysis App</h1>
-    <p>Uncover emotions behind online discussions using AI.</p>
+    <p>Uncover emotions behind online discussions using our  Sentiment analysis app.</p>
 </section>
 
 <!-- Introduction -->
 <section class="container my-5">
     <h2>What is This App?</h2>
-    <p>Our sentiment analysis tool scans Reddit discussions and analyzes emotions in real-time, helping users track public opinion on various topics.</p>
+    <p>Our sentiment analysis tool  gives users autonomy to key in Reddit  and X formerly twitter discussions and analyzes emotions , helping users track public opinion on various topics by categorizing sentiments into positive ,negative and neutral.</p>
 </section>
 
 <!-- Purpose of the Project -->
@@ -26,21 +26,22 @@
 <section class="container my-5">
     <h2>How It Works</h2>
     <div class="row text-center">
+        
         <div class="col-md-3">
-            <h4>1. Extracts Data</h4>
-            <p>Pulls comments from Reddit discussions.</p>
+            <h4>1. Analyzes Emotions</h4>
+            <p>Uses Machine learning to classify sentiments as Positive, Negative, or Neutral.</p>
         </div>
         <div class="col-md-3">
-            <h4>2. Analyzes Emotions</h4>
-            <p>Uses AI to classify sentiments as Positive, Negative, or Neutral.</p>
-        </div>
-        <div class="col-md-3">
-            <h4>3. Generates Insights</h4>
+            <h4>2. Generates Insights</h4>
             <p>Summarizes overall sentiment trends.</p>
         </div>
         <div class="col-md-3">
-            <h4>4. Visualizes Data</h4>
+            <h4>3. Visualizes Data</h4>
             <p>Displays easy-to-understand charts and statistics.</p>
+        </div>
+        <div class="col-md-3">
+            <h4>4. keeps track of Sentiments analyzed</h4>
+            <p>Saves the analyzed sentiment into a database for reference</p>
         </div>
     </div>
 </section>
@@ -62,8 +63,8 @@
     <ul>
         <li>🖥️ <strong>Backend:</strong> Flask & Python</li>
         <li>💻 <strong>Frontend:</strong> HTML, CSS, JavaScript (Bootstrap)</li>
-        <li>🤖 <strong>AI Model:</strong> NLP (VADER, TextBlob, or custom models)</li>
-        <li>📊 <strong>Data Source:</strong> Reddit API</li>
+        <li>🤖 <strong>ML model:</strong> NLP (VADER, uses a vectorize and Logistic regression model )</li>
+        <li>📊 <strong>Data Source:</strong> Kaggle dataset on twitter and Reddit data</li>
         <li>📈 <strong>Visualization:</strong> Matplotlib & Chart.js</li>
     </ul>
 </section>
@@ -71,20 +72,20 @@
 <!-- Research Segment -->
 <section class="container my-5">
     <h2>Research on Sentiment Analysis</h2>
-    <p>Good knowledge, attitudes, and practices (KAP) towards obstetric danger signs lead to fast health-seeking behavior, protecting both mother and child. A lack of awareness about these signs can cause delays in seeking care, contributing to maternal mortality.</p>
-    <p>This research aims to increase awareness of obstetric danger signs among pregnant mothers at Kitui County Referral Hospital. It is a descriptive cross-sectional study involving 80 respondents selected through random sampling. Data will be collected via questionnaires, processed using SPSS version 26, and presented using tables, graphs, and charts.</p>
+    <p> This project focuses on developing a Sentiment Analysis System to predict whether they are positive, negative or neutral. The system leverages machine learning techniques, specifically Logistic Regression, to analyze tweets and categorize them into positive, negative, or neutral sentiments.</p>
+    <p>Key objectives included achieving high accuracy in sentiment classification, real-time analysis capabilities, and scalability. The system was developed using Python, Flask for deployment, and the it utilized Logistic regression as a machine learning algorithm. Preprocessing techniques such as tokenization, normalization, and handling of multilingual text were implemented to improve accuracy. The final model achieved an accuracy of 92%, closely approaching the target of 95%.</p>
 </section>
 
 <!-- Meet the Team -->
 <section class="container my-5 text-center">
     <h2>Meet the Team</h2>
-    <p><strong>Wekesa Senior</strong> - Developer & AI Enthusiast</p>
+    <p><strong>Wekesa Senior</strong> - Developer & ML Enthusiast</p>
 </section>
 
 <!-- Call to Action -->
 <section class="text-center my-5">
     <h2>Ready to Explore Sentiments?</h2>
-    <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg">Start Analyzing</a>
+    <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">Start Analyzing</a>
 </section>
 
 

@@ -3,22 +3,39 @@
 {% block title %}Sentiment Analysis - Home{% endblock %}
 
 {% block content %}
+{% if session['username'] %}
+  <h2>Welcome back, {{ session['username'] }}!</h2>
+{% else %}
+  <p>You are not logged in.</p>
+{% endif %}
+
 <div class="container mt-4">
 
     <!-- Hero Section -->
     <div class="jumbotron text-center bg-primary text-white p-5 rounded">
         <h1 class="display-4">Analyze Sentiments Instantly!</h1>
-        <p class="lead">Enter text, get real-time sentiment insights powered by AI.</p>
+        <p class="lead">Enter text, get real-time sentiment insights powered by Machine learning.</p>
         <a href="#live-analysis" class="btn btn-light btn-lg">Try It Now</a>
     </div>
 
     <!-- Live Sentiment Analysis Demo -->
     <div id="live-analysis" class="card shadow p-4 mt-4">
         <h2 class="text-center">Live Sentiment Analysis</h2>
-        <div class="form-group">
+
+        <div class="form-group position-relative">
             <textarea class="form-control" id="textInput" rows="3" placeholder="Enter text here..." required></textarea>
+            <button class="btn btn-outline-secondary mt-2" onclick="startVoiceInput()">🎙️ Speak</button>
         </div>
-        <button class="btn btn-success btn-block" onclick="analyzeSentiment()">Analyze</button>
+
+        <button class="btn btn-success btn-block mt-3" onclick="analyzeSentiment()">Analyze</button>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="text-center mt-3" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Analyzing...</span>
+            </div>
+            <p class="mt-2">Analyzing...</p>
+        </div>
 
         <div id="sentimentResult" class="mt-3 text-center"></div>
     </div>
@@ -31,7 +48,7 @@
 
     <!-- Extra Features Section -->
     <div class="mt-5">
-        <h2 class="text-center">Additional Features</h2>
+        <h2 class="text-center">Sentiment analysis Tracker</h2>
         <div class="d-flex flex-column align-items-center">
             <a href="{{ url_for('download_results') }}" class="btn btn-primary btn-block mb-2" style="max-width:400px;">
                 Download Sentiment Results (CSV)
@@ -55,8 +72,13 @@
     function analyzeSentiment() {
         const text = document.getElementById("textInput").value;
         const resultDiv = document.getElementById("sentimentResult");
+        const spinner = document.getElementById("loadingSpinner");
+
+        resultDiv.innerHTML = "";
+        spinner.style.display = "block";
 
         if (text.trim() === "") {
+            spinner.style.display = "none";
             resultDiv.innerHTML = `<div class="alert alert-danger">Please enter some text to analyze.</div>`;
             return;
         }
@@ -68,15 +90,17 @@
         })
         .then(res => res.json())
         .then(data => {
+            spinner.style.display = "none";
             if (data.sentiment) {
                 resultDiv.innerHTML = `<div class="alert alert-info"><strong>Sentiment:</strong> ${data.sentiment}</div>`;
-                updateSentimentChart(); // refresh chart after prediction
+                updateSentimentChart();
             } else {
                 resultDiv.innerHTML = `<div class="alert alert-warning">Error analyzing sentiment.</div>`;
             }
         })
         .catch(error => {
             console.error("Error:", error);
+            spinner.style.display = "none";
             resultDiv.innerHTML = `<div class="alert alert-danger">Something went wrong!</div>`;
         });
     }
@@ -87,7 +111,7 @@
             .then(data => {
                 const labels = Object.keys(data);
                 const values = Object.values(data);
-                const colors = ['#28a745', '#dc3545', '#ffc107']; // Positive, Negative, Neutral
+                const colors = ['#28a745', '#dc3545', '#ffc107'];
 
                 if (chart) {
                     chart.data.datasets[0].data = values;
@@ -114,7 +138,26 @@
             });
     }
 
-    // Initial chart load
+    function startVoiceInput() {
+        const textArea = document.getElementById("textInput");
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+        recognition.lang = "en-US";
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.start();
+
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript;
+            textArea.value += transcript;
+        };
+
+        recognition.onerror = function(event) {
+            alert("Voice input error: " + event.error);
+        };
+    }
+
     document.addEventListener('DOMContentLoaded', updateSentimentChart);
 </script>
 {% endblock %}
